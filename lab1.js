@@ -3,8 +3,6 @@ const { ValidationError } = require('./modules/errors');
 const { PermissionError } = require('./modules/errors');
 const { DatabaseError } = require('./modules/errors');
 
-const criticalErrs = ['ValidationError', 'PermissionError', 'DatabaseError'];
-
 class ExceptionManager {
     constructor() {
         this.crit = 0;
@@ -26,19 +24,6 @@ class ExceptionManager {
 }
 
 let exceptionManager = new ExceptionManager();
-
-// exceptionManager.isCritical(new DatabaseError())
-
-exceptionManager.handlingError(new ValidationError());
-(exceptionManager.getStat())
-// exceptionManager.handlingError(new PermissionError());
-// exceptionManager.getStat()
-// exceptionManager.handlingError(new DatabaseError());
-// exceptionManager.getStat()
-exceptionManager.handlingError(new RangeError());
-exceptionManager.getStat()
-
-// console.log(exceptionManager.isCritical(new Error()));
 
 module.exports = {
     ValidationError,
